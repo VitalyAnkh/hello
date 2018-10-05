@@ -1,0 +1,35 @@
+<!DOCTYPE html/>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="styles/style.css" rel="stylsesheet" type="text/css" />
+    <title>My test site</title>
+</head>
+
+<script>
+    var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+<body>
+    <h1>Mozilla is cool!</h1>
+    <img src="images/firefox.jpg" alt="firefox">
+    <p>At Mozilla, we’re a global community of</p>
+
+
+    <ol>
+        <li>technologists</li>
+        <li>thinkers</li>
+        <li>builders</li>
+    </ol>
+
+    <p>working together ... </p>
+    <p>read the <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manisfesto</a></p>
+
+</body>
+
+</html>
