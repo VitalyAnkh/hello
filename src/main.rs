@@ -1,17 +1,20 @@
+extern crate hello;
+
 use std::fs;
 use std::io::prelude::*;
 use std::net::TcpListener;
 use std::net::TcpStream;
 use std::thread;
 use std::time::Duration;
+use hello::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    let pool=ThreadPool::new(4);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
-        handle_connection(stream);
-
+        pool.execute(|| { handle_connection(stream) });
     }
 }
 
@@ -28,13 +31,13 @@ fn handle_connection(mut stream: TcpStream) {
         ("HTTP/1.1 200 OK\r\n\r\n", "h.html")
     } else if buffer.starts_with(sleep) {
         thread::sleep(Duration::from_secs(5));
-        ("HTTP/1.1 200 OK\r\n\r\n","h.html")
+        ("HTTP/1.1 200 OK\r\n\r\n", "h.html")
     } else {
         ("HTTP/1.1 404 NOT FOUND\r\n\r\n", "404.html")
     };
 
 
-    let mut contents = fs::read_to_string(filename).unwrap();
+    let contents = fs::read_to_string(filename).unwrap();
 
     let response = format!("{}{}", status_line, contents);
     stream.write(response.as_bytes()).unwrap();
