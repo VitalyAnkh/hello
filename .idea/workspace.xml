@@ -32,7 +32,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e99aa88-7825-47f2-97ba-4528af566971" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,7 +72,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="305" />
-          <entry key="rs" value="3901" />
+          <entry key="rs" value="4132" />
           <entry key="txt" value="92" />
         </counts>
       </usages-collector>
@@ -81,7 +80,7 @@
         <counts>
           <entry key="HTML" value="305" />
           <entry key="PLAIN_TEXT" value="92" />
-          <entry key="Rust" value="3901" />
+          <entry key="Rust" value="4132" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -102,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="112">
+              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -258,7 +257,7 @@
       <workItem from="1538904928189" duration="2178000" />
       <workItem from="1538940254495" duration="1850000" />
       <workItem from="1539022594384" duration="29000" />
-      <workItem from="1539022675792" duration="2796000" />
+      <workItem from="1539022675792" duration="3362000" />
     </task>
     <task id="LOCAL-00001" summary="Add response.">
       <created>1538721877046</created>
@@ -292,7 +291,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26582000" />
+    <option name="totallyTimeSpent" value="27148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -303,7 +302,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45404813" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.51531726" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -362,8 +361,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="112">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
         </state>
       </provider>
     </entry>
