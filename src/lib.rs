@@ -2,12 +2,24 @@ use std::sync::{Arc, Mutex};
 use std::sync::mpsc;
 use std::thread;
 
-struct Job;
 
 pub struct ThreadPool {
     workers: Vec<Worker>,
     sender: mpsc::Sender<Job>,
 }
+
+trait FnBox {
+    fn call_box(self: Box<dyn Self>);
+}
+
+impl<F: FnOnce()> FnBox for F {
+    fn call_box(self: Box<dyn F>) {
+        (*self)()
+    }
+}
+
+type Job = Box<dyn FnBox + Send + 'static>;
+
 
 impl ThreadPool {
     /// Create a new ThreadPool
@@ -23,11 +35,11 @@ impl ThreadPool {
 
         let (sender, receiver) = mpsc::channel();
 
-        let receiver=Arc::new(Mutex::new(receiver));
+        let receiver = Arc::new(Mutex::new(receiver));
 
         let mut workers = Vec::with_capacity(size);
         for id in 0..size {
-            workers.push(Worker::new(id, receiver));
+            workers.push(Worker::new(id, Arc::clone(&receiver)));
         }
         ThreadPool {
             workers,
@@ -38,8 +50,8 @@ impl ThreadPool {
         where
             F: FnOnce() + Send + 'static
     {
-    let job = Box::new(f);
-    self.sender.send(job).unwrap();
+        let job = Box::new(f);
+        self.sender.send(job).unwrap();
     }
 }
 
@@ -53,9 +65,9 @@ impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
         let thread = thread::spawn(move || {
             loop {
-                let job = receiver.lock().unwrap().recv().unwrap();
+                let job = receiver.lock().expect("Thread lock error!").recv().unwrap();
                 println!("Worker {} got a job; executing.", id);
-                (*job)()
+                job.call_box();
             }
         });
         Worker {
